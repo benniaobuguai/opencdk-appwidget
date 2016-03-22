@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">桌面小工具</string>
+    <string name="app_name">AppWidget</string>
     
-    <string name="toutiao">今日头条</string>
-    <string name="news_main_title">新闻主页</string>
-    <string name="news_detail_title">新闻详情</string>
+    <string name="news_main_title">News Home</string>
+    <string name="news_detail_title">News Detail</string>
+
+    <string name="opencdk_home">www.opencdk.com</string>
 
 </resources>

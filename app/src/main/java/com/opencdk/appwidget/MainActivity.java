@@ -14,146 +14,141 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.opencdk.appwidget.activity.NewsListActivity;
 
 public class MainActivity extends BaseActivity {
-	
-	private static final String TAG = "";
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.layout_main);
+    private static final String TAG = "MainActivity";
 
-		ActionBar actionBar = getSupportActionBar();
-		if (actionBar != null) {
-			actionBar.setHomeButtonEnabled(true);
-			actionBar.setDisplayUseLogoEnabled(false);
-			actionBar.setDisplayShowHomeEnabled(true);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.layout_main);
 
-			actionBar.setDisplayHomeAsUpEnabled(false);
-			actionBar.setTitle(R.string.toutiao);
-		}
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayUseLogoEnabled(false);
+            actionBar.setDisplayShowHomeEnabled(true);
 
-		if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
-		}
+            actionBar.setDisplayHomeAsUpEnabled(false);
+            actionBar.setTitle(R.string.app_name);
+        }
 
-		handleIntent();
-	}
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().add(R.id.container, new PlaceholderFragment()).commit();
+        }
 
-	@Override
-	protected void onNewIntent(Intent intent) {
-		super.onNewIntent(intent);
-		setIntent(intent);
-		try {
-			handleIntent();
-		} catch (Exception e) {
-			Log.e(TAG, "", e);
-		}
-	}
+        handleIntent();
+    }
 
-	private void handleIntent() {
-		final Intent intent = getIntent();
-		if (intent != null) {
-			String scheme = intent.getScheme();
-			if (GConstants.SCHEME.equalsIgnoreCase(scheme)) {
-				new Handler().postDelayed(new Runnable() {
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        try {
+            handleIntent();
+        } catch (Exception e) {
+            Log.e(TAG, "", e);
+        }
+    }
 
-					@Override
-					public void run() {
-						// String uriString = intent.getData().toString();
-						try {
-							Uri uri = intent.getData();
-							String className = uri.getQueryParameter("className");
+    private void handleIntent() {
+        final Intent intent = getIntent();
+        if (intent != null) {
+            String scheme = intent.getScheme();
+            if (GConstants.SCHEME.equalsIgnoreCase(scheme)) {
+                new Handler().postDelayed(new Runnable() {
 
-							Intent transferIntent = new Intent();
-							transferIntent.putExtras(intent);
-							transferIntent.setClassName(MainActivity.this, className);
-							startActivity(transferIntent);
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-				}, 300);
-			}
-		}
-	}
+                    @Override
+                    public void run() {
+                        try {
+                            Uri uri = intent.getData();
+                            String className = uri.getQueryParameter("className");
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		return true;
-	}
+                            Intent transferIntent = new Intent();
+                            transferIntent.putExtras(intent);
+                            transferIntent.setClassName(MainActivity.this, className);
+                            startActivity(transferIntent);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, 300);
+            }
+        }
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			// Official website
-			return true;
-		}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
+    }
 
-		return super.onOptionsItemSelected(item);
-	}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // Official website
+                return true;
+        }
 
-	public static class PlaceholderFragment extends Fragment implements OnClickListener {
+        return super.onOptionsItemSelected(item);
+    }
 
-		private Button btnMusic;
-		private Button btnVideo;
-		private Button btnBrowser;
+    public static class PlaceholderFragment extends Fragment implements OnClickListener {
 
-		public PlaceholderFragment() {
+        private Button btnNewsList;
+        private Button btnOpenCDKHome;
 
-		}
+        public PlaceholderFragment() {
 
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.layout_main_fm, container, false);
+        }
 
-			btnMusic = (Button) rootView.findViewById(R.id.btn_music);
-			btnVideo = (Button) rootView.findViewById(R.id.btn_video);
-			btnBrowser = (Button) rootView.findViewById(R.id.btn_browser);
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.layout_main_fm, container, false);
 
-			btnMusic.setOnClickListener(this);
-			btnVideo.setOnClickListener(this);
-			btnBrowser.setOnClickListener(this);
+            btnNewsList = (Button) rootView.findViewById(R.id.btn_news_list);
+            btnOpenCDKHome = (Button) rootView.findViewById(R.id.btn_opencdk_home);
 
-			return rootView;
-		}
+            btnNewsList.setOnClickListener(this);
+            btnOpenCDKHome.setOnClickListener(this);
 
-		@Override
-		public void onClick(View v) {
-			switch (v.getId()) {
-			case R.id.btn_music:
-				onMusicClick();
-				break;
-			case R.id.btn_video:
-				onVideoClick();
-				break;
-			case R.id.btn_browser:
-				onBrowserClick();
-				break;
-			}
-		}
+            return rootView;
+        }
 
-		private void onLoginClick() {
-			
-		}
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.btn_news_list:
+                    onNewsListClick();
+                    break;
+                case R.id.btn_opencdk_home:
+                    onOpenCDKHomeClick();
+                    break;
 
-		private void onMusicClick() {
-			
-		}
+            }
+        }
 
-		private void onVideoClick() {
-			
-		}
+        private void onNewsListClick() {
+            Intent intent = new Intent(getActivity(), NewsListActivity.class);
+            startActivity(intent);
+        }
 
-		/**
-		 * 点击进入浏览器
-		 */
-		private void onBrowserClick() {
-			
-		}
+        private void onOpenCDKHomeClick() {
+            try {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                Uri uri = Uri.parse("http://www.opencdk.com");
+                intent.setData(uri);
+                startActivity(intent);
+            } catch (Exception e) {
+                Toast.makeText(getActivity(), "Not found a browser!", Toast.LENGTH_SHORT).show();
+            }
+        }
 
-	}
+    }
 
 }

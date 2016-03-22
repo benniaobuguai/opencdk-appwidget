@@ -7,7 +7,6 @@ import android.os.HandlerThread;
 import android.os.Message;
 import android.os.SystemClock;
 import android.widget.ImageView;
-import com.opencdk.appwidget.R;
 
 /**
  * Splash Activity
@@ -90,18 +89,18 @@ public class SplashActivity extends BaseActivity {
 		return false;
 	}
 
-	protected boolean subHandlerCallback(Message msg) {
-		switch (msg.what) {
-		case MSG_SUB_INIT_TASK:
-			// SystemClock.sleep(2 * 1000);
-			SystemClock.sleep(600);
+    protected boolean subHandlerCallback(Message msg) {
+        switch (msg.what) {
+            case MSG_SUB_INIT_TASK:
+                SystemClock.sleep(2 * 1000);
+                // SystemClock.sleep(600);
 
-			getUiHandler().sendEmptyMessage(MSG_UI_INIT_FINISH);
-			break;
-		}
+                getUiHandler().sendEmptyMessage(MSG_UI_INIT_FINISH);
+                break;
+        }
 
-		return false;
-	}
+        return false;
+    }
 
 	private Handler.Callback mUiHandlerCallback = new Handler.Callback() {
 
