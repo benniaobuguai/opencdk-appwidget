@@ -1,0 +1,33 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="15dp" >
+
+        <Button
+            android:id="@+id/btn_music"
+            style="@style/global_btn_grey"
+            android:layout_marginTop="10dp"
+            android:text="music" />
+
+        <Button
+            android:id="@+id/btn_video"
+            style="@style/global_btn_green"
+            android:layout_marginTop="10dp"
+            android:text="video" />
+
+        <Button
+            android:id="@+id/btn_browser"
+            style="@style/global_btn_red"
+            android:layout_marginTop="10dp"
+            android:text="browser" />
+    </LinearLayout>
+
+</ScrollView>

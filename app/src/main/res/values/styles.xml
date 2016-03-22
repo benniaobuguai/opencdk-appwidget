@@ -1,0 +1,76 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="CDK.Application.Theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="actionBarSize">?android:attr/actionBarSize</item>
+        <item name="actionBarDivider">?android:attr/actionBarDivider</item>
+        <item name="actionBarItemBackground">?android:attr/actionBarItemBackground</item>
+        <item name="actionBarStyle">@style/CDK.Application.Theme.ActionBar</item>
+    </style>
+    
+    <style name="CDK.Theme.NoTitleBar" parent="CDK.Application.Theme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    
+    <!-- 对于闪屏界面, 使用特定的主题 -->
+    <!-- 设置android:windowIsTranslucent=true, 可避免通过scheme进入时, 瞬间白屏, 但会造成activity切换动画失效, 自行权衡是否打开 -->
+    <style name="CDK.Theme.NoTitleBar.Splash" parent="CDK.Theme.NoTitleBar">
+        <!-- <item name="android:windowIsTranslucent">true</item> -->
+    </style>
+    
+    <style name="CDK.Theme.NoTitleBar.Fullscreen" parent="CDK.Theme.NoTitleBar.Fullscreen">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    
+    <!-- ActionBar Style -->
+    <style name="CDK.Application.Theme.ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+　　   		<item name="background">@color/theme_actionbar_bg</item>
+　　               <item name="backgroundStacked">@color/theme_actionbar_bg</item>
+　　	</style>
+    
+    <!-- &&&&&&&&&&&&&&&&&&&&&&&& Global Controls Style &&&&&&&&&&&&&&&&&&&&&&&& -->
+    <style name="global_btn_green">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/selector_g_btn_green</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="global_btn_grey">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/selector_g_btn_grey</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    
+    <style name="global_btn_red">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/selector_g_btn_red</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    
+    <style name="global_listview">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">#ffffff</item>
+        <item name="android:cacheColorHint">@android:color/transparent</item>
+        <item name="android:divider">#bbbbbb</item>
+        <item name="android:dividerHeight">1px</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:listSelector">#00000000</item>
+        <item name="android:scrollbars">none</item>
+    </style>
+
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources> 
+  
+    <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&& BASIC COLORS &&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+    <color name="theme_text_color_hint">#ff9f9f9f</color>
+    <color name="theme_actionbar_bg">#ffAD0000</color>
+    <color name="theme_actionbar_title_color">#ffffffff</color>
+    <color name="theme_actionbar_subtitle_color">#f0ffffff</color>
+    <color name="theme_actionbar_menu_color">#ffffffff</color>
+    
+    <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&& 推荐 &&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+	<color name="windows_best_bg">#ffbbdeb6</color>
+	
+	
+    <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&& BASIC COLORS &&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="black_middle">#ff2b2b2b</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray">#fff5f5f6</color>
+    <color name="red">#ffe53539</color>
+    
+    
+</resources>
