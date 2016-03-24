@@ -56,7 +56,7 @@ public class NewsWidgetService extends RemoteViewsService implements Runnable {
         autoRefreshIntent.setAction(NewsAppWidgetProvider.ACTION_REFRESH_AUTO);
         PendingIntent pending = PendingIntent.getBroadcast(NewsWidgetService.this, 0, autoRefreshIntent, 0);
 
-        // 60*60秒更新一次
+        // 1*60秒更新一次
         final long updateTime = 1 * 60 * 1000;
         Time time = new Time();
         long nowMillis = System.currentTimeMillis();

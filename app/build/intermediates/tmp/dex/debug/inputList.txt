@@ -1,5 +1,0 @@
-F:\001 AndroidL\githubdir\studio\opencdk-appwidget\app\build\intermediates\classes\debug
-F:\001 AndroidL\githubdir\studio\opencdk-appwidget\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-33b1bca8014c254f4f07944875836dd878a4e2bd.jar
-F:\001 AndroidL\githubdir\studio\opencdk-appwidget\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-93701c767888653e8b3c728d0d0df38c7e04fc2c.jar
-F:\001 AndroidL\githubdir\studio\opencdk-appwidget\app\build\intermediates\pre-dexed\debug\classes-e762f503ae29b30e6873d4fef9b05fefb4dabe1d.jar
-F:\001 AndroidL\githubdir\studio\opencdk-appwidget\app\build\intermediates\pre-dexed\debug\classes-b5cf45385315f5e7a088be38bfef2f7a7465959f.jar
