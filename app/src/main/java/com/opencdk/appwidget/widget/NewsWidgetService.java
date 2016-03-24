@@ -10,8 +10,6 @@ import android.widget.RemoteViewsService;
 
 import com.opencdk.appwidget.utils.Utils;
 
-import java.text.SimpleDateFormat;
-
 /**
  * @author 笨鸟不乖
  * @version 1.0.0
@@ -63,8 +61,7 @@ public class NewsWidgetService extends RemoteViewsService implements Runnable {
         time.set(nowMillis + updateTime);
         long updateTimes = time.toMillis(true);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-
+        // SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         // Log.d(TAG, "request next update at " + updateTimes);
         // Log.d(TAG, "refresh time: " + sdf.format(new Date()));
 
