@@ -68,22 +68,26 @@ public class SplashActivity extends BaseActivity {
 
 	protected boolean uiHandlerCallback(Message msg) {
 		switch (msg.what) {
-		case MSG_UI_INIT_FINISH:
-			GApplication.setEntryFlag(true);
-			final Intent intent = getIntent();
-			if (intent != null && GConstants.SCHEME.equalsIgnoreCase(intent.getScheme())) {
-				Intent newIntent = new Intent(intent);
-				newIntent.setClass(SplashActivity.this, MainActivity.class);
-				newIntent.putExtras(intent.getExtras());
-				startActivity(newIntent);
-			} else {
-				intent.setClass(SplashActivity.this, MainActivity.class);
-				intent.setData(intent.getData());
-				startActivity(intent);
-			}
+			case MSG_UI_INIT_FINISH:
+				GApplication.setEntryFlag(true);
+				final Intent intent = getIntent();
+				if (intent == null) {
+					break;
+				}
 
-			finish();
-			break;
+				if (GConstants.SCHEME.equalsIgnoreCase(intent.getScheme())) {
+					Intent newIntent = new Intent(intent);
+					newIntent.setClass(SplashActivity.this, MainActivity.class);
+					newIntent.putExtras(intent.getExtras());
+					startActivity(newIntent);
+				} else {
+					intent.setClass(SplashActivity.this, MainActivity.class);
+					intent.setData(intent.getData());
+					startActivity(intent);
+				}
+
+				finish();
+				break;
 		}
 
 		return false;
